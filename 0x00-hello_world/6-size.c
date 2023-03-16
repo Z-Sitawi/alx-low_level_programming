@@ -7,7 +7,7 @@
 int main(void)
 {
 int myInt;
-int myLint;
+long int myLint;
 long long int myLLint;
 float myFloat;
 char myChar;
