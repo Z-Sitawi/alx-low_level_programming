@@ -1,19 +1,18 @@
 #include <stdio.h>
-/**
- * main - Entry point
- *
- * Result: Always 0 (Success)
- */
 
+/**
+ * main - Print the small case alphabets
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-	char alpha[] = "abcdefghijklmnopqrstuvwxyz\n";
-	int i = 0;
+	char alpha[27] = "abcdefghijklmnopqrstuvwxyz\n";
+	int i;
 
-	while (alpha[i] != '\0')
+	for (i = 0; i < 27; i++)
 	{
 		putchar(alpha[i]);
-		i++;
 	}
 	return (0);
 }
