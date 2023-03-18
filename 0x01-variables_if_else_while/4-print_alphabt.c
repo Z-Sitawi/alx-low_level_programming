@@ -1,18 +1,25 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * main - Print the small case alphabets
+ * main - print alphabet in small case without e and q
  *
  * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-	char alpha[25] = "abcdfghijklmnoprstuvwxyz\n";
 	int i;
 
-	for (i = 0; i < 25; i++)
+	for (i = 97; i <= 122; i++)
 	{
-		putchar(alpha[i]);
+		if (i != 101 && i != 113)
+		{
+			putchar(i);
+		}
 	}
+		putchar('\n');
+
 	return (0);
 }
