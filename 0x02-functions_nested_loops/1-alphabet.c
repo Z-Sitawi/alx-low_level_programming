@@ -1,16 +1,4 @@
 #include "main.h"
-void print_alphabet(void);
-/**
- * main - execute the function print_alphabet()
- *
- * Return: Always 0 (Success)
- */
-int main(void)
-{
-	print_alphabet();
-
-	return (0);
-}
 /**
  * print_alphabet - print low case alphabets
  *
@@ -23,7 +11,9 @@ void print_alphabet(void)
 
 	for (alpha = 97; alpha <= 122; alpha++)
 	{
-		putchar(alpha);
+		_putchar(alpha);
 	}
-	putchar('\n');
+	_putchar('\n');
+
 }
+
