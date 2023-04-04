@@ -4,7 +4,7 @@
 /**
  * _memcpy - It copies memory area.
  *
- * @dest: a pointer to the destination memory area 
+ * @dest: a pointer to the destination memory area
  * @src: a pointer to the source memory area
  * @n: number of bytes
  *
