@@ -28,12 +28,15 @@ char *_memset(char *s, char b, unsigned int n)
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *array = malloc(nmemb * sizeof(size));
+	char *array;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
+	array = malloc(nmemb * sizeof(size));
+
 	if (array == NULL)
 		return (NULL);
+
 	_memset(array, 0, nmemb * sizeof(size));
 
 	return (array);
