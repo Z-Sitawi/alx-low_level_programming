@@ -28,6 +28,12 @@ int main(int argc, char *argv[])
 			amount %= cents[i];
 		}
 	}
+	if (amount < 0)
+	{
+		printf("0\n");
+		return (0);
+	}
+
 	if (amount != 0)
 	{
 		printf("Error\n");
