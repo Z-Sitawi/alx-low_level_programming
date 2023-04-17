@@ -1,3 +1,4 @@
+#ifndef DOG_H
 #define DOG_H
 /**
  * struc dog - provides a dog's basic info
