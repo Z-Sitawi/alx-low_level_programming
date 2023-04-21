@@ -10,44 +10,41 @@
  */
 void print_all(const char * const format, ...)
 {
-	const char *p = format, *separator = ", ";
-	va_list arg_list;
-	char c_arg;
-	int i_arg;
-	float f_arg;
-	char *s_arg;
+	int i = 0;
+	char *str, *separator = "";
+	va_list arglist;
 
-	va_start(arg_list, format);
-	while (*p != '\0')
+	va_start(arglist, format);
+	if (format)
 	{
-		switch (*p)
+		while (format[i])
 		{
-			case 'c':
-				c_arg = va_arg(arg_list, int);
-				printf("%c", c_arg);
-				break;
-			case 'i':
-				i_arg = va_arg(arg_list, int);
-				printf("%d", i_arg);
-				break;
-			case 'f':
-				f_arg = va_arg(arg_list, double);
-				printf("%f", f_arg);
-				break;
-			case 's':
-				s_arg = va_arg(arg_list, char *);
-				if (s_arg == NULL)
-					printf("(nil)");
-				printf("%s", s_arg);
-				break;
-			default:
-				{
-				}
+			switch (format[i])
+			{
+				case 'c':
+					printf("%s%c", separator, va_arg(arglist, int));
+					break;
+				case 'i':
+					printf("%s%d", separator, va_arg(arglist, int));
+					break;
+				case 'f':
+					printf("%s%f", separator, va_arg(arglist, double));
+					break;
+				case 's':
+					str = va_arg(arglist, char *);
+					if (!str)
+						str = "(nil)";
+					printf("%s%s", separator, str);
+					break;
+				default:
+					i++;
+					continue;
+			}
+			separator = ", ";
+			i++;
 		}
-		p++;
-		if (separator != NULL && (*p == 's' || *p == 'f' || *p == 'i' || *p == 'c'))
-			printf("%s", separator);
 	}
-	va_end(arg_list);
+
 	printf("\n");
+	va_end(arglist);
 }
