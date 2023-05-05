@@ -9,5 +9,7 @@ int get_endianness(void)
 	unsigned int j = 1;
 	char *ccc = (char *) &j;
 
-	return (*ccc);
+	if (*ccc)
+		return (1);
+	return (0);
 }
