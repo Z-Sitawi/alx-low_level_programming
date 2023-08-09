@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * create_file -  It creates a file and writes text content to it
+ * create_file - It creates a file and writes text content to it
  *
  * @filename: a pointer to the name of the file to create.
  * @text_content:  a NULL terminated string to write to the file.
  *
- * Returns: 1 on success, -1 on failure
+ * Return: 1 on success, -1 on failure
  */
 
 int create_file(const char *filename, char *text_content)
@@ -20,10 +20,8 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		while (text_content[len] != '\0')
-		{
+		for (len = 0; text_content[len];)
 			len++;
-		}
 	}
 
 	/* Open the file for writing (create if doesn't exist) */
