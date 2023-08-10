@@ -16,7 +16,7 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	/* Check if the file was opened successfully */
 	if (filename == NULL)
-		return(-1);
+		return (-1);
 
 	if (text_content != NULL)
 	{
@@ -34,6 +34,8 @@ int append_text_to_file(const char *filename, char *text_content)
 		fclose(fd);
 		return (-1);
 	}
+	if (fd == NULL || rw == -1)
+		return (-1);
 
 	fclose(fd);
 	return (1);
