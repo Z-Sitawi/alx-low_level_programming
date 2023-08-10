@@ -10,7 +10,7 @@
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	FILE *fd; /* A file descriptor for the opened file */
+	ssize_t fd; /* A file descriptor for the opened file */
 	int rw; /* return value of the write function */
 	int len = 0; /* length of the text_content string */
 
@@ -25,18 +25,14 @@ int append_text_to_file(const char *filename, char *text_content)
 	}
 
 	/* Open the file for appending (do not create file if doesn't exist) */
-	fd = fopen(filename, "a");
+	fd = open(filename, O_WRONLY | O_APPEND);
 
 	/* write content to the file*/
-	rw = fwrite(text_content, sizeof(char), len, fd);
-	if (rw != len)
-	{
-		fclose(fd);
-		return (-1);
-	}
-	if (fd == NULL || rw == -1)
+	rw = write(fd, text_content, len);
+
+	if (fd == -1 || rw == -1)
 		return (-1);
 
-	fclose(fd);
+	close(fd);
 	return (1);
 }
